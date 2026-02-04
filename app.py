@@ -69,10 +69,11 @@ if st.button("Predict Best Route", type="primary"):
         best = results.iloc[0]
         
         st.success(f"🏆 Recommendation: **{best['route_name']}**")
-        st.metric("Est. Duration", f"{best['avg_duration']:.1f} mins")
+        st.metric("Est. Duration", f"{best['duration_min']:.1f} mins")
         
         st.subheader("Comparison")
         chart = results.set_index('route_name')
         st.bar_chart(chart)
     else:
+
         st.error("No data found.")
